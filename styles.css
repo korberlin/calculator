@@ -1,4 +1,3 @@
-/* Reset styles and base styling */
 body,
 h1,
 p,
@@ -7,17 +6,25 @@ button {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    /* Matrix-like font */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: -1;
 }
 
 body {
     background-color: #000;
-    background-image: url('path-to-matrix-background-image.jpg');
-    /* Optionally, you can use a Matrix-themed wallpaper */
+    background-image: url('img/matrix3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     color: #00ff00;
-    /* Matrix green */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +32,7 @@ body {
     height: 100vh;
 }
 
+/* Container Styles */
 .container {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
@@ -33,6 +41,7 @@ body {
     box-shadow: 0 0 20px #00ff00;
 }
 
+/* Header Styles */
 header {
     margin-bottom: 20px;
 }
@@ -41,23 +50,36 @@ header {
     font-size: 2.5rem;
 }
 
+/* Display Styles */
 .display {
-    width: 320px;
+    width: 300px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
+    height: 100px;
     border-radius: 8px;
+    border: 1px solid #00ff00;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column-reverse;
-    /* To make the input appear above the result */
 }
 
 .result,
 .input {
     margin: 5px 0;
-    font-size: 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
+.result {
+    font-size: 1.8rem;
+}
+
+.input {
+    font-size: 1.2rem;
+}
+
+/* Buttons Grid and Button Styles */
 .buttons-grid {
     display: flex;
     flex-wrap: wrap;
@@ -67,7 +89,6 @@ header {
 
 .button {
     flex: 1 0 calc(25% - 10px);
-    /* subtracting gap */
     height: 60px;
     font-size: 1.5rem;
     background-color: rgba(0, 0, 0, 0.6);
@@ -85,9 +106,9 @@ header {
 
 .button#equals {
     flex-basis: 50%;
-    /* To make equals button take up half the space */
 }
 
+/* Footer Styles */
 .footer {
     margin-top: 20px;
     display: flex;
